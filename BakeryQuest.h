@@ -10,6 +10,11 @@
 #include <IRrecv.h>
 #include <ESP8266WiFi.h>
 
+struct Spell {
+  std::string name;
+  int magnitude;
+};
+
 // library interface description
 class BakeryQuest
 {
@@ -17,7 +22,8 @@ class BakeryQuest
   public:
     void connect(const std::string, const std::string, const std::string);
     void trigger(std::string);
-    std::pair<std::string, int> listenForWand();
+    bool spellCast(Spell *spell);
+    void resume();
 
   private:
     WiFiClient wifiClient;

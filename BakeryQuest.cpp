@@ -40,9 +40,11 @@ void BakeryQuest::connect(std::string wifi_ssid, std::string wifi_pass, std::str
 // Public Methods //////////////////////////////////////////////////////////////
 // Functions available in Wiring sketches, this library, and other libraries
 
-std::pair<std::string, int> BakeryQuest::listenForWand() {
+bool BakeryQuest::spellCast(Spell *spell) {
   decode_results results;
-  std::string name = "Unknown";
+
+  spell->name = "";
+  spell->magnitude = 0;
 
   if (irrecv.decode(&results)) {
     if (results.decode_type == MAGIQUEST) {
@@ -53,29 +55,29 @@ std::pair<std::string, int> BakeryQuest::listenForWand() {
         Serial.println(results.command);
         Serial.println("");
 
-        if (results.address == 26005324) { name = "Ben"; }
-        if (results.address == 29378092) { name = "Zoe"; }
+        if (results.address == 26005324) { spell->name = "Ben"; }
+        if (results.address == 29378092) { spell->name = "Zoe"; }
 
-        irrecv.resume();
-        return std::make_pair(name, results.command);
+        spell->magnitude = results.command;
       } else {
         Serial.print("wand_id: ");
         Serial.println(results.address);
         Serial.print("Not strong enough: ");
         Serial.println(results.command);
       }
-    } else {
-      Serial.println("Unknown IR signal.");
-      Serial.println(results.decode_type);
-      Serial.println(results.address);
     }
+
+    irrecv.resume();
   }
 
-  irrecv.resume();  // Receive the next value
-  return std::make_pair(name, 0);
+  if (spell->magnitude > 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
-boolean BakeryQuest::connectedToIFTTT() {
+bool BakeryQuest::connectedToIFTTT() {
   Serial.println("Connecting to http://maker.ifttt.com on port 80.");
 
   int tcpResponse = wifiClient.connect("maker.ifttt.com", 80);
@@ -89,7 +91,7 @@ void BakeryQuest::trigger(std::string action)
     std::string command = "GET /trigger/" + action + "/with/key/" + iftttKey + " HTTP/1.1\nHost: maker.ifttt.com\nConnection: close\n\n";
 
     Serial.println(command.c_str());
-    // wifiClient.print(command.c_str());
+    wifiClient.print(command.c_str());
   } else {
     Serial.println("Not connected");
   }
