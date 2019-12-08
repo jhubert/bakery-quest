@@ -6,19 +6,14 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-Test	KEYWORD1
+BakeryQuest	KEYWORD1
+Spell	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-doSomething	KEYWORD2
-
-#######################################
-# Instances (KEYWORD2)
-#######################################
-
-#######################################
-# Constants (LITERAL1)
-#######################################
-
+connect	KEYWORD2
+trigger	KEYWORD2
+spellCast	KEYWORD2
+resume	KEYWORD2

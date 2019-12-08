@@ -1,14 +1,12 @@
 /*
-  Test.h - Test library for Wiring - implementation
-  Copyright (c) 2006 John Doe.  All right reserved.
+  BakeryQuest.cpp - A wrapper around the ESP8266 and IR libraries to
+  use Feather Huzzah as a wand receiver
 */
 
-// include this library's description file
+#include "BakeryQuest.h"
 #include <string>
 #include <ir_Magiquest.h>
 #include <IRrecv.h>
-#include "BakeryQuest.h"
-
 #include <ESP8266WiFi.h>
 
 const uint16_t kRecvPin = 14;
@@ -48,6 +46,8 @@ bool BakeryQuest::spellCast(Spell *spell) {
 
   if (irrecv.decode(&results)) {
     if (results.decode_type == MAGIQUEST) {
+      // This 2050 number is somewhat arbitrary. I had a hard time getting
+      // reliable magnitude readings from the different wands.
       if (results.command > 2050) {
         Serial.print("wand_id: ");
         Serial.println(results.address);
@@ -55,6 +55,7 @@ bool BakeryQuest::spellCast(Spell *spell) {
         Serial.println(results.command);
         Serial.println("");
 
+        // These are the wand ids for my kid's wands
         if (results.address == 26005324) { spell->name = "Ben"; }
         if (results.address == 29378092) { spell->name = "Zoe"; }
 

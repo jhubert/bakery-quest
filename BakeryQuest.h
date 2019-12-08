@@ -1,11 +1,12 @@
 /*
-  Test.h - Test library for Wiring - description
-  Copyright (c) 2006 John Doe.  All right reserved.
+  BakeryQuest.h - A wrapper around the ESP8266 and IR libraries to
+  use Feather Huzzah as a wand receiver
 */
 
 // ensure this library description is only included once
 #ifndef BakeryQuest_h
 #define BakeryQuest_h
+
 #include <string>
 #include <IRrecv.h>
 #include <ESP8266WiFi.h>
@@ -15,10 +16,8 @@ struct Spell {
   int magnitude;
 };
 
-// library interface description
 class BakeryQuest
 {
-  // user-accessible "public" interface
   public:
     void connect(const std::string, const std::string, const std::string);
     void trigger(std::string);
