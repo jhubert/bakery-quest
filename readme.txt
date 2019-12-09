@@ -10,7 +10,7 @@ Installation
 --------------------------------------------------------------------------------
 
 To install this library, just place this entire folder as a subfolder in your
-Arduino/lib/targets/libraries folder.
+Arduino/lib/targets/libraries folder. You can delete the ./examples folder.
 
 When installed, this library should look like:
 
@@ -40,4 +40,3 @@ code.
 If you choose to modify the code for this library (i.e. "BakeryQuest.cpp" or "BakeryQuest.h"),
 then you must first 'unbuild' this library by deleting the "BakeryQuest.o" file. The
 new "BakeryQuest.o" with your code will appear after the next press of "verify"
-
