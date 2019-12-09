@@ -17,3 +17,5 @@ connect	KEYWORD2
 triggerIFTTT	KEYWORD2
 spellCast	KEYWORD2
 resume	KEYWORD2
+wizard	KEYWORD2
+magnitude	KEYWORD2
