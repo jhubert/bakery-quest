@@ -43,7 +43,7 @@ To stop using this library, delete that line from your sketch.
 
 #### Geeky information:
 
-> After a successful build of this library, a new file named "BakeryQuest.o" will appear
+After a successful build of this library, a new file named "BakeryQuest.o" will appear
 in "Arduino/lib/targets/libraries/BakeryQuest". This file is the built/compiled library
 code.
 
