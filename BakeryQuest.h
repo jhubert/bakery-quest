@@ -20,7 +20,7 @@ class BakeryQuest
 {
   public:
     void connect(const std::string, const std::string, const std::string);
-    void trigger(std::string);
+    void triggerIFTTT(std::string);
     bool spellCast(Spell *spell);
     void resume();
 

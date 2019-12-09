@@ -86,7 +86,7 @@ bool BakeryQuest::connectedToIFTTT() {
   return tcpResponse > 0;
 }
 
-void BakeryQuest::trigger(std::string action)
+void BakeryQuest::triggerIFTTT(std::string action)
 {
   if (connectedToIFTTT()) {
     std::string command = "GET /trigger/" + action + "/with/key/" + iftttKey + " HTTP/1.1\nHost: maker.ifttt.com\nConnection: close\n\n";

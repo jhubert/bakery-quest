@@ -14,6 +14,6 @@ Spell	KEYWORD1
 #######################################
 
 connect	KEYWORD2
-trigger	KEYWORD2
+triggerIFTTT	KEYWORD2
 spellCast	KEYWORD2
 resume	KEYWORD2
