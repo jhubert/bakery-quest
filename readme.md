@@ -22,11 +22,13 @@ Arduino/lib/targets/libraries folder. You can delete the ./examples folder.
 
 When installed, this library should look like:
 
+```
 Arduino/lib/targets/libraries/BakeryQuest                     (this library's folder)
 Arduino/lib/targets/libraries/BakeryQuest/BakeryQuest.cpp     (the library implementation file)
 Arduino/lib/targets/libraries/BakeryQuest/BakeryQuest.h       (the library description file)
 Arduino/lib/targets/libraries/BakeryQuest/keywords.txt        (the syntax coloring file)
 Arduino/lib/targets/libraries/BakeryQuest/readme.txt          (this file)
+```
 
 ### Building
 
@@ -39,8 +41,9 @@ select BakeryQuest.  This will add a corresponding line to the top of your sketc
 
 To stop using this library, delete that line from your sketch.
 
-Geeky information:
-After a successful build of this library, a new file named "BakeryQuest.o" will appear
+#### Geeky information:
+
+> After a successful build of this library, a new file named "BakeryQuest.o" will appear
 in "Arduino/lib/targets/libraries/BakeryQuest". This file is the built/compiled library
 code.
 
