@@ -12,7 +12,7 @@
 #include <ESP8266WiFi.h>
 
 struct Spell {
-  std::string name;
+  std::string wizard;
   int magnitude;
 };
 

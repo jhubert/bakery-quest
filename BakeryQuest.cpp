@@ -41,7 +41,7 @@ void BakeryQuest::connect(std::string wifi_ssid, std::string wifi_pass, std::str
 bool BakeryQuest::spellCast(Spell *spell) {
   decode_results results;
 
-  spell->name = "";
+  spell->wizard = "";
   spell->magnitude = 0;
 
   if (irrecv.decode(&results)) {
@@ -56,8 +56,8 @@ bool BakeryQuest::spellCast(Spell *spell) {
         Serial.println("");
 
         // These are the wand ids for my kid's wands
-        if (results.address == 26005324) { spell->name = "Ben"; }
-        if (results.address == 29378092) { spell->name = "Zoe"; }
+        if (results.address == 26005324) { spell->wizard = "Ben"; }
+        if (results.address == 29378092) { spell->wizard = "Zoe"; }
 
         spell->magnitude = results.command;
       } else {
